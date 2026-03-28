@@ -1,61 +1,23 @@
-import time
 import timeit
 import numpy as np
-import numpy.typing as npt
-from typing import NamedTuple
 
 from algorithm import eig_KxK_diagblocks
 
 NUM_SAMPLES = 5
 
-class TimingResult(NamedTuple):
-    eigenvalues: npt.NDArray
-    eigenvectors: npt.NDArray
-    time: float
-
-def time_block_method(K: int, n: int, M: npt.NDArray) -> TimingResult:
-    """
-    Measure runtime for.
-    
-    Parameters
-    ----
-
-    Returns
-    ----
-    """
-    t0 = time.perf_counter()
-    eigs, vecs = eig_KxK_diagblocks(K, n, M)
-    t1 = time.perf_counter()
-    total_time = t1 - t0
-    return TimingResult(
-        eigenvalues=eigs,
-        eigenvectors=vecs,
-        time=total_time
-    )
-
-def time_numpy(M: npt.NDArray) -> TimingResult:
-    """
-    Docstring for time_numpy.
-    
-    Parameters
-    ----
-
-    Returns
-    ----
-    """
-    t0 = time.perf_counter()
-    eigs, vecs = np.linalg.eig(M)
-    t1 = time.perf_counter()
-    total_time = t1 - t0
-    return TimingResult(
-        eigenvalues=eigs,
-        eigenvectors=vecs,
-        time=total_time
-    )
-
 def median_time(func) -> float:
     """
-    Docstring for median_time.
+    Compute the median execution time of a function using NUM_SAMPLES timing samples.
+
+    Parameters
+    ----
+    func : callable
+        Function to be timed. Must take no arguments (wrap with lambda if needed).
+
+    Returns
+    ----
+    time : float
+        Median execution time per function call in seconds.
     """
     timer = timeit.Timer(func)
     # automatically determine number of runs per sample
