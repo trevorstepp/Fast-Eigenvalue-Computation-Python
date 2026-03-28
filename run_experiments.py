@@ -1,14 +1,13 @@
 import pandas as pd
 import numpy as np
 
-from benchmark import time_block_method, time_numpy, median_time
+from benchmark import median_time
 from verify import verify_results
 from build import build_block_matrix
 from algorithm import eig_KxK_diagblocks
 
-N_VALUES = [100, 250, 500, 750, 1000, 1500, 2000]
+N_VALUES = [100, 250, 500, 750, 1000, 1500, 2000]  # adjust depending on patience
 K_VAL = 3
-NUM_RUNS = 5
 
 def measure_runtime_and_verify() -> tuple[list[float], list[float], list[float]]:
     """
@@ -51,9 +50,14 @@ def measure_runtime_and_verify() -> tuple[list[float], list[float], list[float]]
     
     return block_time, eig_time, block_max_residuals
 
-def main():
+def store_data(csv_name: str) -> None:
     """
-    Docstring for main.
+    Store runtimes for both methods and the maximum residuals for the block-diagonal algorithm in a .csv file.
+
+    Parameters
+    ----
+    csv_name : str
+        Name of the .csv file to store the data in.
     """
     block_time, eig_time, block_residuals = measure_runtime_and_verify()
     # save times in CSV file for future reference
@@ -64,7 +68,7 @@ def main():
         "dense_time": eig_time,
         "max_residual": block_residuals
     })
-    df.to_csv("python_timings.csv", index=False)
+    df.to_csv(csv_name, index=False)
 
 if __name__ == '__main__':
-    main()
+    store_data("python_timings.csv")
