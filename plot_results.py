@@ -18,7 +18,7 @@ def plot_runtime_comparison() -> None:
     julia_df = pd.read_csv(julia_csv)
 
     # matlab csv
-    matlab_csv = base_dir / "fast_Jnlin_eigs" / "matlab_timings.csv"
+    matlab_csv = base_dir / "Fast-Eigenvalue-Computation-MATLAB" / "matlab_timings.csv"
     matlab_df = pd.read_csv(matlab_csv)
 
     plt.figure(figsize=(8,6))
