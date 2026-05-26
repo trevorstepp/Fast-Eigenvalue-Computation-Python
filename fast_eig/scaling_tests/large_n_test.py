@@ -1,12 +1,9 @@
 import pandas as pd
 import numpy as np
-import sys
 
-sys.path.append('../Fast-Eigenvalue-Computation-Python')
-
-from benchmark import median_time
-from build import build_block_matrix
-from algorithm import eig_KxK_diagblocks
+from fast_eig.benchmark import median_time
+from fast_eig.build import build_block_matrix
+from fast_eig.algorithm import eig_KxK_diagblocks
 
 N_VALUES = [100, 250, 500, 750, 1000, 1500, 2000, 3000, 4500, 6000, 10000]
 K_VAL = 3
@@ -49,5 +46,4 @@ def main():
     df.to_csv("python_large_n_timings.csv", index=False)
 
 if __name__ == '__main__':
-    #main()
-    print("duck")
+    main()

@@ -2,7 +2,7 @@ import numpy as np
 import numpy.typing as npt
 from typing import NamedTuple
 
-from algorithm import eig_KxK_diagblocks
+from fast_eig.algorithm import eig_KxK_diagblocks
 
 K_LARGEST = 10  # number of largest eigenvalues to compare
 

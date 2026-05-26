@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 
-from benchmark import median_time
-from verify import verify_results
-from build import build_block_matrix
-from algorithm import eig_KxK_diagblocks
+from fast_eig.benchmark import median_time
+from fast_eig.verify import verify_results
+from fast_eig.build import build_block_matrix
+from fast_eig.algorithm import eig_KxK_diagblocks
 
 N_VALUES = [100, 250, 500, 750, 1000, 1500, 2000]  # adjust depending on patience
 K_VAL = 3

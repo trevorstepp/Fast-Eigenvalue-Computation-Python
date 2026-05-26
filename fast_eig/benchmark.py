@@ -1,7 +1,7 @@
 import timeit
 import numpy as np
 
-from algorithm import eig_KxK_diagblocks
+from fast_eig.algorithm import eig_KxK_diagblocks
 
 NUM_SAMPLES = 5
 
