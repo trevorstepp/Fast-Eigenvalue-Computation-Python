@@ -59,8 +59,9 @@ def calc_slopes(data_sources: dict) -> None:
     plt.show()
 
 if __name__ == '__main__':
-    base_dir = Path(__file__).parent.parent.parent
-    python_csv = "python_large_n_timings.csv"
+    base_dir = Path(__file__).parent.parent.parent.parent
+    scaling_dir = Path(__file__).parent
+    python_csv = scaling_dir / "python_large_n_timings.csv"
     julia_csv = base_dir / "Fast-Eigenvalue-Computation-Julia" / "julia_large_n_timings.csv"
     matlab_csv = base_dir / "Fast-Eigenvalue-Computation-MATLAB" / "matlab_large_n_timings.csv"
 
