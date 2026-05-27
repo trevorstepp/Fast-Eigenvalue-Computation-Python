@@ -27,8 +27,8 @@ def build_block_matrix(K: int, n: int, seed: int | None = None) -> npt.NDArray:
 
     # loop n times, once for each diagonal index in the block matrices
     for l in range(n):
-        # Construct the K×K matrix B_l = M_l (algorithm.py),
-        # formed by collecting the l-th diagonal entries of each n×n block.
+        # construct the K x K matrix B_l = M_l (algorithm.py),
+        # formed by collecting the l-th diagonal entries of each n x n block.
         B_l = np.random.randn(K, K)
         for i in range(K):
             for j in range(K):
